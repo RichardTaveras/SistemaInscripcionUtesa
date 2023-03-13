@@ -22,12 +22,14 @@ CREATE TABLE `datos_inscripcion` (
   `certificacion_bachiller` varchar(255) NOT NULL,
   `record_calificaciones` varchar(255) NOT NULL,
   `certificado_salud` varchar(255) NOT NULL,
-  `cedula_identidad` varchar(255) NOT NULL
+  `cedula_identidad` varchar(255) NOT NULL,
+  `estado` varchar(10) DEFAULT 'pendiente',
+  `accion` enum('aprobar','rechazar') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-INSERT INTO `datos_inscripcion` (`id`, `nombre`, `apellido`, `email`, `telefono`, `direccion`, `foto`, `acta_nacimiento`, `certificacion_bachiller`, `record_calificaciones`, `certificado_salud`, `cedula_identidad`) VALUES
-(1, 'Richard', 'Cespedez', 'ramonarcgames@gmail.com', '829-494-6176', '27 de la plaza de la tablita', 'Screenshot_20230209_014702.png', 'Screenshot_20230224_045734.png', 'Screenshot_20230216_111425.png', 'Screenshot_20230205_022449.png', 'Screenshot_20230205_022050.png', 'Screenshot_20230130_081306.png'),
-(2, 'Richard', 'Cespedez', 'ramonarcgames@gmail.com', '829-494-6176', '27 de la plaza de la tablita', 'Screenshot_20230209_014702.png', 'Screenshot_20230224_045734.png', 'Screenshot_20230216_111425.png', 'Screenshot_20230205_022449.png', 'Screenshot_20230205_022050.png', 'Screenshot_20230130_081306.png');
+INSERT INTO `datos_inscripcion` (`id`, `nombre`, `apellido`, `email`, `telefono`, `direccion`, `foto`, `acta_nacimiento`, `certificacion_bachiller`, `record_calificaciones`, `certificado_salud`, `cedula_identidad`, `estado`, `accion`) VALUES
+(3, 'Marco', 'Sosa', 'pachecomarte.sap@gmail.com', '829-494-6176', '27 de la plaza de la tablita', 'f1.png', 'f2.png', 'f3.png', 'f4.png', 'f5.png', 'f6.png', 'aprobado', NULL),
+(5, 'Richard ', 'Taveras', 'richardtaveras@gmail.com', '829456765', 'Licey', 'f6.png', 'f6.png', 'f6.png', 'f6.png', 'f6.png', 'f6.png', 'aprobado', NULL);
 
 CREATE TABLE `documentos` (
   `id` int(11) NOT NULL,
@@ -137,7 +139,7 @@ ALTER TABLE `usuarios`
 
 
 ALTER TABLE `datos_inscripcion`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 ALTER TABLE `documentos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
