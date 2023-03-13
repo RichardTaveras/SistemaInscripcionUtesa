@@ -29,7 +29,7 @@ if ($resultado) {
     $_SESSION['usuario'] = $resultado['usuario'];
     $_SESSION['rol'] = $resultado['rol'];
     if ($_SESSION['rol'] == 'admin') {
-        header('Location: admin.php');
+        header('Location: Menu/index.html');
     } elseif ($_SESSION['rol'] == 'estudiante') {
         header('Location: estudiante.php');
     } else {
