@@ -17,14 +17,24 @@ $password = $_POST['password'];
 
 // Crear la consulta SQL para buscar el usuario y el password en la tabla "usuarios"
 $consulta = "SELECT * FROM usuarios WHERE usuario = :usuario AND password = :password";
+
 $statement = $conexion->prepare($consulta);
 $statement->execute(array(':usuario' => $usuario, ':password' => $password));
 $resultado = $statement->fetch(PDO::FETCH_ASSOC);
 
 // Verificar si se encontró algún registro en la tabla
 if ($resultado) {
-    // Si el usuario y el password son correctos, redireccionar a la página de inicio
-    header('Location: inicio.php');
+    // Si el usuario y el password son correctos, establecer la sesión del usuario y redireccionar a la página correspondiente según su rol
+    session_start();
+    $_SESSION['usuario'] = $resultado['usuario'];
+    $_SESSION['rol'] = $resultado['rol'];
+    if ($_SESSION['rol'] == 'admin') {
+        header('Location: admin.php');
+    } elseif ($_SESSION['rol'] == 'estudiante') {
+        header('Location: estudiante.php');
+    } else {
+        echo "Rol no reconocido";
+    }
     exit;
 } else {
     // Si el usuario o el password son incorrectos, mostrar un mensaje de error
