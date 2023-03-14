@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sistema de inscripcion</title>
+    <title>Mantenimiento Usuario</title>
     <meta name="description" content="Ela Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -209,158 +209,63 @@
             </div>
         </header>
         <!-- /#header -->
+
+
+
         <!-- Content -->
         <div class="content">
             <!-- Animated -->
             <div class="animated fadeIn">
                 <!-- Widgets  -->
-                <div class="row">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-1">
-                                        <i class="pe-7s-cash"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                            <div class="stat-text">$<span class="count">23569</span></div>
-                                            <div class="stat-heading">Aprobados</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-2">
-                                        <i class="pe-7s-cart"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                            <div class="stat-text"><span class="count">3435</span></div>
-                                            <div class="stat-heading">Pendientes</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-3">
-                                        <i class="pe-7s-browser"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                            <div class="stat-text"><span class="count">149</span></div>
-                                            <div class="stat-heading">Formularios</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-4">
-                                        <i class="pe-7s-users"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                            <div class="stat-text"><span class="count">2986</span></div>
-                                            <div class="stat-heading">Estudiantes</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                 <!-- Content -->
+        <div class="content mt-4">
+            <div class="card col-md-8 offset-md-2">
+                <div class="card-header">Registro de Usuario</div>
+                <div class="card-body">
+                <form action="procesar_usuario.php" method="post">
+                    <h2 class="sr-only">Registro de Usuario</h2>
+                     <div class="illustration"><i class="icon ion-ios-person"></i></div>
+                    <div class="form-group"><label for="usuario">Usuario</label><input class="form-control" type="text" name="usuario" placeholder="Ingrese su usuario"></div>
+                    <div class="form-group"><label for="password">Contraseña</label><input class="form-control" type="password" name="password" placeholder="Ingrese su contraseña"></div>
+                    <div class="form-group"><label for="password2">Confirmar contraseña</label><input class="form-control" type="password" name="password2" placeholder="Confirme su contraseña"></div>
+                     <div class="form-group"><label for="correo">Correo electrónico</label><input class="form-control" type="email" name="correo" placeholder="Ingrese su correo electrónico"></div>
+                     <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Registrarse</button></div>
+                     </form>
+        
                 </div>
-                <!-- /Widgets -->
-             
-                <div class="clearfix"></div>
-                <!-- Orders -->
-                
-                <!-- To Do and Live Chat -->
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title box-title">Lista que hacer</h4>
-                                <div class="card-content">
-                                    <div class="todo-list">
-                                        <div class="tdl-holder">
-                                            <div class="tdl-content">
-                                                <ul>
-                                                    <li>
-                                                        <label>
-                                                            <input type="checkbox"><i class="check-box"></i><span>Terminar el login y registro ....</span>
-                                                            <a href='#' class="fa fa-times"></a>
-                                                            <a href='#' class="fa fa-pencil"></a>
-                                                            <a href='#' class="fa fa-check"></a>
-                                                        </label>
-                                                    </li>
-                                                    <li>
-                                                        <label>
-                                                            <input type="checkbox"><i class="check-box"></i><span>Seguir Modificando el Dashboard</span>
-                                                            <a href='#' class="fa fa-times"></a>
-                                                            <a href='#' class="fa fa-pencil"></a>
-                                                            <a href='#' class="fa fa-check"></a>
-                                                        </label>
-                                                    </li>
-                                                    <li>
-                                                        <label>
-                                                            <input type="checkbox" checked><i class="check-box"></i><span>Mantenimiento Usuario</span>
-                                                            <a href='#' class="fa fa-times"></a>
-                                                            <a href='#' class="fa fa-pencil"></a>
-                                                            <a href='#' class="fa fa-check"></a>
-                                                        </label>
-                                                    </li>
-                                                    <li>
-                                                        <label>
-                                                            <input type="checkbox" checked><i class="check-box"></i><span>Hacer formulario de inscripcion</span>
-                                                            <a href='#' class="fa fa-times"></a>
-                                                            <a href='#' class="fa fa-pencil"></a>
-                                                            <a href='#' class="fa fa-check"></a>
-                                                        </label>
-                                                    </li>
+            </div>
+        </div>
 
-                                                    <li>
-                                                        <label>
-                                                            <input type="checkbox" checked><i class="check-box"></i><span>Interfaz de Usuario</span>
-                                                            <a href='#' class="fa fa-times"></a>
-                                                            <a href='#' class="fa fa-pencil"></a>
-                                                            <a href='#' class="fa fa-check"></a>
-                                                        </label>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div> <!-- /.todo-list -->
-                                </div>
-                            </div> <!-- /.card-body -->
-                        </div><!-- /.card -->
-                    </div>
+    
+  
+        <!-- /.content -->
+  
+        <?php
+        // Verificar si hay un mensaje de error o de registro exitoso en la URL
+        if (isset($_GET['error']) && $_GET['error'] == 'campos_vacios') {
+            echo '<div class="alert alert-danger" role="alert">Error: Campo Vacio.</div>';
+        if (isset($_GET['error']) && $_GET['error'] == 'formulario_invalido') {
+            echo '<div class="alert alert-danger" role="alert">Error: formulario inválido.</div>';
+        } elseif (isset($_GET['error']) && $_GET['error'] == 'usuario_existente') {
+            echo '<div class="alert alert-danger" role="alert">Error: usuario ya registrado.</div>';
+        }
+    }
+        ?>
 
-                    
-                </div>
-                <!-- /To Do and Live Chat -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
                
+
+
+
+
+
             </div>
             <!-- .animated -->
         </div>
         <!-- /.content -->
+
+
         <div class="clearfix"></div>
 
         
@@ -585,5 +490,5 @@
             // Bar Chart #flotBarChart End
         });
     </script>
-</body>
+    </body>
 </html>
