@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Mantenimiento Usuario</title>
+    <title>Sistema de inscripcion</title>
     <meta name="description" content="Ela Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -27,6 +27,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/weathericons@2.1.0/css/weather-icons.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.css" rel="stylesheet" />
+    
 
    <style>
     #weatherWidget .currentDesc {
@@ -63,7 +64,11 @@
             height: 160px;
         }
 
+        
+
     </style>
+    
+   
 </head>
 
 <body>
@@ -80,7 +85,7 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Forms</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="../admin.php">Verificacion de inscripcion</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="admin.php">Validación de inscripcion</a></li>
                             <li><i class="menu-icon fa fa-th"></i><a href="ManUsuario.php">Mantenimiento Usuario</a></li>
                             <li><i class="menu-icon fa fa-th"></i><a href="../estudiante.php">Formulario Estudiantes</a></li>
                         </ul>
