@@ -133,30 +133,72 @@ h1 {
   color: green;
   border-bottom-color: white;
 }
+.btn-reject {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: #dc3545; /* rojo */
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    border: 2px solid #dc3545; /* rojo */
+    border-radius: 4px;
+    text-decoration: none;
+  }
+
+  .btn-reject span {
+    display: inline-block;
+    margin-right: 8px;
+  }
+
+  .btn-reject i {
+    display: inline-block;
+    font-size: 12px;
+    margin-left: 8px;
+  }
 
 	</style>
 
     <!-- Agregar los scripts JavaScript -->
+
 	<script>
-		function openTab(evt, tabName) {
-		  // Obtener todas las subpestañas y ocultarlas
-		  var i, tabcontent, tablinks;
-		  tabcontent = document.getElementsByClassName("tabcontent");
-		  for (i = 0; i < tabcontent.length; i++) {
-		    tabcontent[i].style.display = "none";
-		  }
 
-		  // Obtener todos los botones de la pestaña y desactivarlos
-		  tablinks = document.getElementsByClassName("tablink");
-		  for (i = 0; i < tablinks.length; i++) {
-		    tablinks[i].className = tablinks[i].className.replace(" active", "");
-		  }
+document.getElementById("notas").addEventListener("keydown", function(event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    guardarNotas();
+  }
+});
 
-		  // Mostrar la subpestaña correspondiente y activar su botón
-		  document.getElementById(tabName).style.display = "block";
-		  evt.currentTarget.className += " active";
-		}
-       
+function guardarNotas() {
+  var notas = document.getElementById("notas").value;
+  var id = <?php echo $id ?>;
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "guardar_notas.php", true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+      console.log(xhr.responseText);
+    }
+  };
+  xhr.send("notas=" + notas + "&id=" + id);
+}
+
+function rechazarInscripcion(id) {
+      if (confirm("¿Está seguro de que desea rechazar esta inscripción?")) {
+        // Actualizar el estado de la inscripción a "rechazada" en la base de datos
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            // Recargar la página después de actualizar la base de datos
+            location.reload();
+          }
+        };
+        xhttp.open("POST", "rechazar.php", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("id=" + id);
+      }
+    }
+
 
 	</script>
 <?php include('encabezado.php');?>
@@ -167,6 +209,7 @@ h1 {
             <div class="animated fadeIn">
 <div class="container">
 <?php
+
 // Conectarse a la base de datos
 $mysqli = new mysqli('localhost', 'root', '', 'inscripcion');
 
@@ -176,12 +219,13 @@ if ($mysqli->connect_error) {
         . $mysqli->connect_error);
 }
 
-// Si el administrador ha aprobado una inscripción, actualiza la base de datos
+// Si el administrador ha aprobado o rechazado una inscripción, actualiza la base de datos
 if (isset($_POST['id']) && isset($_POST['estado'])) {
-    $id = $_POST['id'];
-    $estado = $_POST['estado'];
-    $query = "UPDATE datos_inscripcion SET estado='estado' WHERE id=$id";
-    $mysqli->query($query);
+  $id = $_POST['id'];
+  $estado = $_POST['estado'];
+  $notas = $_POST['notas']; // nueva variable para almacenar las notas ingresadas por el administrador
+  $query = "UPDATE datos_inscripcion SET estado='$estado', notas='$notas' WHERE id=$id";
+  $mysqli->query($query);
 }
 
 // Consultar las inscripciones y sus archivos adjuntos
@@ -190,7 +234,7 @@ $result = $mysqli->query($query);
 
 // Mostrar las inscripciones y sus archivos adjuntos en una tabla
 echo '<table>';
-echo '<tr><th>ID</th><th>Nombre</th><th>Email</th><th>Estado</th><th>Acción</th></tr>';
+echo '<tr><th>ID</th><th>Nombre</th><th>Email</th><th>Estado</th><th>Notas</th></tr>';
 while ($row = $result->fetch_assoc()) {
     
     echo '<tr>';
@@ -198,14 +242,29 @@ while ($row = $result->fetch_assoc()) {
     echo '<td>' . $row['nombre'] . '</td>';
     echo '<td>' . $row['email'] . '</td>';
     echo '<td>' . $row['estado'] . '</td>';
+    
+    echo '<td>'  . $row['notas'] . '<textarea id="notas" name="notas" placeholder="Ingrese notas..."></textarea>'; '</td>';
+   
     echo '</tr>';
 
+
+    
          // Mostrar el botón de aprobación si la inscripción no ha sido aprobada
          if ($row['estado'] == 'pendiente') {
-            echo '<td><a class="btn-approve" href="aprobar.php?id=' . $row['id'] . '"><span>Aprobar</span> </a></td>';
+          echo '<td><a class="btn-approve" href="aprobar.php?id=' . $row['id'] . '"><span>Aprobar</span> </a></td>';
+          
+          
+      } else {
+          echo '<td></td>';
+      }
+        if ($row['estado'] == 'pendiente' ) {
+          echo '<td><a class="btn-reject" href="rechazar.php?id=' . $row['id'] . '"><span>Rechazar</span> </a></td>';
+      
         } else {
-            echo '<td></td>';
+          echo '<td></td>';
         }
+        
+       
      // Agregar el botón "Ver archivos" y el div oculto para cada fila
     
      echo '<td><button class="tablink" onclick="openTab(event, \'tab-' . $row['id'] . '\')">Ver archivos</button></td>';
@@ -232,7 +291,13 @@ echo '</div>';
 echo '</div>';
 echo '</td>';
 echo '</tr>';
+
+
+
+
     }
+
+    
 
 
     

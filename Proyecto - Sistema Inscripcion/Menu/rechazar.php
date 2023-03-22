@@ -9,11 +9,11 @@ if ($mysqli->connect_error) {
         . $mysqli->connect_error);
 }
 
-// Obtener el ID de la inscripción a aprobar
+// Obtener el ID de la inscripción a rechazar
 $id = $_GET['id'];
 
-// Actualizar el estado de la inscripción a "aprobado"
-$query = "UPDATE datos_inscripcion SET estado='aprobado' WHERE id=?";
+// Actualizar el estado de la inscripción a "rechazado"
+$query = "UPDATE datos_inscripcion SET estado='rechazado' WHERE id=?";
 $stmt = $mysqli->prepare($query);
 $stmt->bind_param("i", $id);
 $result = $stmt->execute();
