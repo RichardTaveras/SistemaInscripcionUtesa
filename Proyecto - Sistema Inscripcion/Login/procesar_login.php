@@ -29,11 +29,11 @@ if ($resultado) {
     $_SESSION['usuario'] = $resultado['usuario'];
     $_SESSION['rol'] = $resultado['rol'];
     if ($_SESSION['rol'] == 'admin') {
-        header('Location: Menu/index.html');
-    } elseif ($_SESSION['rol'] == 'estudiante') {
-        header('Location: estudiante.php');
+        header('Location: ../Menu/index.html');
+    
     } else {
         echo "Rol no reconocido";
+        header('Location: login.php');
     }
     exit;
 } else {
