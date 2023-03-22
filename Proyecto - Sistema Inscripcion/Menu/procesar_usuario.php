@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 if ($resultado) {
                     // Registro exitoso
-                    header("Location: ManUsuario.php?registro=exitoso");
+                    header("Location: crud_usuario.php?registro=exitoso");
                     exit();
                 } else {
                     // Error al insertar el nuevo usuario
