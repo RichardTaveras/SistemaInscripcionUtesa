@@ -45,7 +45,7 @@ $sql = "INSERT INTO datos_inscripcion (nombre, apellido, email, telefono, direcc
 VALUES ('$nombre', '$apellido', '$email', '$telefono', '$direccion', '$foto', '$acta_nacimiento', '$certificacion_bachiller', '$record_calificaciones', '$certificado_salud', '$cedula_identidad')";
 
 if ($conn->query($sql) === TRUE) {
-    echo "Los datos han sido insertados correctamente.";
+    echo "Recibiras una notificacion al e-mail que has proporcionado.";
 } else {
     echo "Error al insertar los datos: " . $conn->error;
 }

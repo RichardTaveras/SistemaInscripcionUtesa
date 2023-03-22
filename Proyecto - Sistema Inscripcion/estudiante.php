@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Formulario de inscripción</title>
+	<title> FORMULARIO DE INSCRIPCIÓN </title>
 	<style>
 		body {
-			font-family: Arial, sans-serif;
-			background-color: #f7f7f7;
+			font-family: "Lucida Grande", sans-serif;
+			background-color: #003300;
 		}
 
 		h1 {
-			text-align: center;
-			margin-top: 30px;
-		}
+  text-align: center;
+  margin-top: 30px;
+  color: orange;
+  font-family: "Montserrat", sans-serif;
+}
+
 
 		form {
 			background-color: #fff;
@@ -24,81 +27,148 @@
 			margin-bottom: 50px;
 		}
 
+		form > fieldset {
+			border: none;
+			margin: 0;
+			padding: 0;
+			display: block;
+			width: 100%;
+			min-width: 0;
+			border-radius: 0;
+			background-color: transparent;
+		}
+
+		form > fieldset > legend {
+			font-weight: bold;
+			font-size: 20px;
+			color: #0000FF;
+			padding-bottom: 10px;
+			text-align: center;
+		}
+
+		form > fieldset:first-of-type > legend {
+			color: #006600;
+			font-family: "Montserrat", sans-serif;
+		}
+
+		form > fieldset:last-of-type > legend {
+			color:#006600;
+			font-family: "Montserrat", sans-serif;
+		}
+	
+
 		label {
-  display: block;
-  margin-bottom: 10px;
+  display: inline-block;
+  width: 40%; /* ancho específico del label */
+  margin-bottom: 20px;
   font-weight: bold;
-  font-size: 16px;
-  text-align: center; /* centrado de los labels */
+  font-size: 14px;
+  text-align: right; /* alineación a la derecha del label */
 }
 
 input[type=text], 
 input[type=email], 
-input[type=tel], 
-input[type=file] {
-  display: block;
-  margin-bottom: 20px;
-  width: 100%; /* ancho del input al 100% */
+input[type=tel] 
+ {
+
+  width: calc(80% - 130px); /* ancho específico del input, se calcula restando el ancho del label */
+  margin-bottom: 10px;
   padding: 10px;
   border: 2px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
   font-size: 16px;
+   margin-left: 120px; 
+ 
+   
+  
 }
-input[type=submit] {
-  background-color: #4CAF50;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 18px;
-  cursor: pointer;
-  margin-top: 20px;
+input[type=file] {
+  display: inline-block;
+  width: 30%; /* ancho específico del input, se calcula restando el ancho del label */
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  box-sizing: border-box;
+  font-size: 8px;
 }
 
-input[type=submit]:hover {
-  background-color: #3e8e41;
+
+
+		input[type=submit] {
+			background-color: #4CAF50;
+			color: #fff;
+			border: none;
+			padding: 10px 20px;
+			border-radius: 5px;
+			font-size: 18px;
+			cursor: pointer;
+			margin-top: 20px;
+		}
+
+		input[type=submit]:hover {
+			background-color: #3e8e41;
 		}
 	</style>
 </head>
 <body>
-	<h1>Formulario de inscripción</h1>
+	
 	<form action="procesar_inscripcion.php" method="POST" enctype="multipart/form-data">
+	
+	<h1>FORMULARIO DE INSCRIPCIÓN</h1>
+	<hr>
+	<hr>
+	<fieldset>
+			<legend>:::: Datos Personales del Alumno(a)::::</legend>
+			<hr>
+			<hr>
+<br>
 
-    <label for="nombre">Nombre:</label>
-		<input type="text" name="nombre" id="nombre" required><br><br>
 
-    <label for="apellido">Apellido:</label>
-	<input type="text" name="apellido" id="apellido" required><br><br>
 
-	<label for="email">Email:</label>
-	<input type="email" name="email" id="email" required><br><br>
+			<input type="text" name="nombre" placeholder="Nombre" id="nombre" required><br><br>
 
-	<label for="telefono">Teléfono:</label>
-	<input type="tel" name="telefono" id="telefono" required><br><br>
+			
+			<input type="text" name="apellido" placeholder="Apellido" id="apellido" required><br><br>
 
-	<label for="direccion">Dirección:</label>
-	<input type="text" name="direccion" id="direccion" required><br><br>
+			<input type="email" name="email" placeholder="Email" id="email" required><br><br>
 
-		<label for="foto">Foto tamaño 2" x 2":</label>
-		<input type="file" name="foto" id="foto" required>
+			
+			<input type="tel" name="telefono" placeholder="Telefono" id="telefono" required><br><br>
 
-		<label for="acta_nacimiento">Acta de nacimiento legalizada:</label>
-		<input type="file" name="acta_nacimiento" id="acta_nacimiento" required>
+			<input type="text" name="direccion" placeholder="Direccion" id="direccion" required><br><br>
+	
+		<hr>
+		<hr>
+	
+		<hr>
+		
+			<legend>:::: Documentos para enviar ::::</legend>
+			<hr>
+			<br>
+			<label for="foto">Foto tamaño 2" x 2":</label>
+			<input type="file" name="foto" id="foto" required>
 
-		<label for="certificacion_bachiller">Certificación de Bachiller expedida por el Ministerio de Educación Superior, Ciencia y Tecnología (MESCyT):</label>
-		<input type="file" name="certificacion_bachiller" id="certificacion_bachiller" required>
+			<label for="acta_nacimiento">Acta de nacimiento legalizada:</label>
+			<input type="file" name="acta_nacimiento" id="acta_nacimiento" required>
 
-		<label for="record_calificaciones">Récord de calificaciones del bachillerato:</label>
-		<input type="file" name="record_calificaciones" id="record_calificaciones" required>
+			<label for="certificacion_bachiller">Certificación de Bachiller expedida por MESCyT:</label>
+			<input type="file" name="certificacion_bachiller" id="certificacion_bachiller" required>
 
-		<label for="certificado_salud">Certificado de salud:</label>
-		<input type="file" name="certificado_salud" id="certificado_salud" required>
+			<label for="record_calificaciones">Récord de calificaciones del bachillerato:</label>
+			<input type="file" name="record_calificaciones" id="record_calificaciones" required>
 
-		<label for="cedula_identidad">Copia de la cédula de identidad y electoral:</label>
-		<input type="file" name="cedula_identidad" id="cedula_identidad" required>
+			<label for="certificado_salud">Certificado de salud:</label>
+			<input type="file" name="certificado_salud" id="certificado_salud" required>
+
+			<label for="cedula_identidad">Copia de la cédula de identidad y electoral:</label>
+			<input type="file" name="cedula_identidad" id="cedula_identidad" required>
+
+		</fieldset>
 
 		<input type="submit" name="submit" value="Enviar">
+
 	</form>
 </body>
 </html>
