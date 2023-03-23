@@ -161,27 +161,25 @@ h1 {
     <!-- Agregar los scripts JavaScript -->
 
 	<script>
+	function openTab(evt, tabName) {
+		  // Obtener todas las subpestañas y ocultarlas
+		  var i, tabcontent, tablinks;
+		  tabcontent = document.getElementsByClassName("tabcontent");
+		  for (i = 0; i < tabcontent.length; i++) {
+		    tabcontent[i].style.display = "none";
+		  }
 
-document.getElementById("notas").addEventListener("keydown", function(event) {
-  if (event.keyCode === 13) {
-    event.preventDefault();
-    guardarNotas();
-  }
-});
+		  // Obtener todos los botones de la pestaña y desactivarlos
+		  tablinks = document.getElementsByClassName("tablink");
+		  for (i = 0; i < tablinks.length; i++) {
+		    tablinks[i].className = tablinks[i].className.replace(" active", "");
+		  }
 
-function guardarNotas() {
-  var notas = document.getElementById("notas").value;
-  var id = <?php echo $id ?>;
-  var xhr = new XMLHttpRequest();
-  xhr.open("POST", "guardar_notas.php", true);
-  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-      console.log(xhr.responseText);
-    }
-  };
-  xhr.send("notas=" + notas + "&id=" + id);
-}
+      	  // Mostrar la subpestaña correspondiente y activar su botón
+		  document.getElementById(tabName).style.display = "block";
+		  evt.currentTarget.className += " active";
+		}
+       
 
 function rechazarInscripcion(id) {
       if (confirm("¿Está seguro de que desea rechazar esta inscripción?")) {
@@ -201,6 +199,9 @@ function rechazarInscripcion(id) {
 
 
 	</script>
+
+
+
 <?php include('encabezado.php');?>
 
         <!-- Content -->
@@ -219,6 +220,8 @@ if ($mysqli->connect_error) {
         . $mysqli->connect_error);
 }
 
+
+
 // Si el administrador ha aprobado o rechazado una inscripción, actualiza la base de datos
 if (isset($_POST['id']) && isset($_POST['estado'])) {
   $id = $_POST['id'];
@@ -235,6 +238,7 @@ $result = $mysqli->query($query);
 // Mostrar las inscripciones y sus archivos adjuntos en una tabla
 echo '<table>';
 echo '<tr><th>ID</th><th>Nombre</th><th>Email</th><th>Estado</th><th>Notas</th></tr>';
+
 while ($row = $result->fetch_assoc()) {
     
     echo '<tr>';
@@ -243,8 +247,9 @@ while ($row = $result->fetch_assoc()) {
     echo '<td>' . $row['email'] . '</td>';
     echo '<td>' . $row['estado'] . '</td>';
     
-    echo '<td>'  . $row['notas'] . '<textarea id="notas" name="notas" placeholder="Ingrese notas..."></textarea>'; '</td>';
+    echo '<td>'  . $row['notas'] . '<textarea  id="notas" name="notas" placeholder="Ingrese notas..."></textarea>'; '</td>';
    
+    echo '<td>' .$row['notas'] . '<a type="submit" class="btn btn-primary" href="guardar_notas.php?=. name="guardar-notas">Guardar</button>';'</td>';
     echo '</tr>';
 
 
@@ -268,8 +273,6 @@ while ($row = $result->fetch_assoc()) {
      // Agregar el botón "Ver archivos" y el div oculto para cada fila
     
      echo '<td><button class="tablink" onclick="openTab(event, \'tab-' . $row['id'] . '\')">Ver archivos</button></td>';
-    
-     
      echo '</tr>'; // <--- aquí
      echo '<tr class="tabcontent" id="tab-' . $row['id'] . '" style="display: none">'; 
 echo '<td colspan="11">';
@@ -295,23 +298,11 @@ echo '</tr>';
 
 
 
-    }
-
-    
-
-
-    
-
-
-   
-
+}
 
 // Cerrar la conexión
 $mysqli->close();
 ?>
-
-
-      
 </div>
             <!-- .animated -->
         </div>

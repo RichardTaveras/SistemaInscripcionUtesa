@@ -9,13 +9,13 @@ if ($mysqli->connect_error) {
         . $mysqli->connect_error);
 }
 
-// Obtener los datos del formulario
-$id = $_POST['id'];
-$notas = $_POST['notas'];
-
-// Actualizar la base de datos con las notas
-$query = "UPDATE datos_inscripcion SET notas='$notas' WHERE id=$id";
-$mysqli->query($query);
+if (isset($_POST['id']) && isset($_POST['estado']) && isset($_POST['notas'])) {
+    $id = $_POST['id'];
+    $estado = $_POST['estado'];
+    $notas = $_POST['notas'];
+    $query = "UPDATE datos_inscripcion SET estado='$estado', notas='$notas' WHERE id=$id";
+    $mysqli->query($query);
+}
 
 // Redirigir de vuelta a la página anterior
 header('Location: ' . $_SERVER['HTTP_REFERER']);
