@@ -1,10 +1,11 @@
 <style>
-    button {
+    button.nuevo {
       padding: 10px 20px;
       border: none;
       border-radius: 5px;
       color: #fff;
       font-weight: bold;
+      background-color: #009688;
     }
     
     button.editar {
@@ -19,6 +20,7 @@
 
 <!--INICIO del cont principal-->
 <div class="container">
+  <br>
     <h2>Mantenimiento Usuario</h2>
     <br>
  <?php
@@ -36,7 +38,7 @@ $data=$resultado->fetchAll(PDO::FETCH_ASSOC);
 <div class="container">
         <div class="row">
             <div class="col-lg-12">            
-            <button onclick="window.location.href = 'ManUsuario.php';"  id="btnNuevo" type="button" class="btn btn-success" data-toggle="modal">Nuevo Usuario</button>    
+            <button onclick="window.location.href = 'ManUsuario.php';"  id="btnNuevo" type="button" class="nuevo" data-toggle="modal">Nuevo Usuario</button>    
             </div>    
         </div>    
     </div>    
@@ -47,7 +49,7 @@ $data=$resultado->fetchAll(PDO::FETCH_ASSOC);
                     <?php
                 // Mostrar la lista de usuarios en una tabla
 echo "<table style='border-collapse: collapse; width: 100%;'>";
-echo "<tr style='background-color: #4CAF50; color: white;'>";
+echo "<tr style='background-color: #009688; color: white;'>";
 echo "<th style='border: 1px solid #ddd; padding: 8px;'>ID</th>";
 echo "<th style='border: 1px solid #ddd; padding: 8px;'>Usuario</th>";
 echo "<th style='border: 1px solid #ddd; padding: 8px;'>Correo</th>";
@@ -56,7 +58,7 @@ echo "<th style='border: 1px solid #ddd; padding: 8px;'>Rol</th>";
 echo "<th style='border: 1px solid #ddd; padding: 8px;'>Acciones</th>";
 echo "</tr>";
 foreach ($data as $fila) {
-    echo "<tr style='background-color: #f2f2f2;'>";
+    echo "<tr style='background-color: #FFCC00;'>";
     echo "<td style='border: 1px solid #ddd; padding: 8px;'>" . $fila["id"] . "</td>";
     echo "<td style='border:1px solid #ddd; padding: 8px;'>" . $fila["usuario"] . "</td>";
     echo "<td style='border: 1px solid #ddd; padding: 8px;'>" . $fila["correo"] . "</td>";
@@ -72,7 +74,8 @@ foreach ($data as $fila) {
     
     // Cerrar la conexión a la base de datos
    // $objeto->CerrarConexion();
-    ?>                   
+    ?>            
+    <br>       
                     </div>
                 </div>
         </div>  

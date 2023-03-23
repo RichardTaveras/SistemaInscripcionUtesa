@@ -49,13 +49,14 @@ else {
 ?>
 
 <?php include('encabezado.php');?>
-
+    
 <!--INICIO del cont principal-->
 <div class="container">
+
     <br>
     <h2>Editar Usuario</h2>
     <br>
-    <form method="post">
+    <form  method="post">
         <div class="form-group">
             <label for="usuario">Usuario:</label>
             <input type="text" class="form-control" id="usuario" name="usuario" value="<?php echo $fila['usuario']; ?>" required>
@@ -77,7 +78,7 @@ else {
 </div>
 <button type="submit" class="btn btn-primary" name="editar_usuario">Actualizar</button>
 </form>
-
+<br>
 </div>
 <!--FIN del cont principal-->
 <?php include('pie.php'); ?>
