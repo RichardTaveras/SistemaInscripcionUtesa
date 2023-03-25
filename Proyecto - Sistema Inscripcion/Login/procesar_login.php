@@ -29,7 +29,7 @@ if ($resultado) {
     $_SESSION['usuario'] = $resultado['usuario'];
     $_SESSION['rol'] = $resultado['rol'];
     if ($_SESSION['rol'] == 'admin') {
-        header('Location: ../Menu/index.html');
+        header('Location: ../Menu/index.php');
     
     } else {
         echo "Rol no reconocido";

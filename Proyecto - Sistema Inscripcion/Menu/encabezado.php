@@ -28,7 +28,6 @@
     <link href="https://cdn.jsdelivr.net/npm/weathericons@2.1.0/css/weather-icons.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.css" rel="stylesheet" />
     
-
    <style>
     #weatherWidget .currentDesc {
         color: #ffffff!important;
@@ -64,11 +63,65 @@
             height: 160px;
         }
 
-        
+        .right-panel header.header {
+    background: #009688;
+    border-bottom: 1px solid #e8e9ed;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    clear: both;
+    padding: 0 30px;
+    height: 55px;
+    position: fixed;
+    left: 280px;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 999;
+}
+.right-panel .navbar-header {
+    width: 100%;
+    background-color: #009688;
+    padding: 0 1.25em 0 0;
+}
+aside.left-panel {
+    background: #0D1214;
+    height: 100vh;
+    padding: 0;
+    vertical-align: top;
+    width: 280px;
+    -webkit-box-shadow: 1px 0 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 1px 0 20px rgba(0, 0, 0, 0.08);
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    top: 55px;
+    z-index: 999;
+}
+
+.navbar {
+    background: #0D1214;
+    border-radius: 0;
+    border: none;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+}
+.navbar .navbar-nav > li.active {
+    background: #0D1214;
+}
+
+.navbar .navbar-nav li.menu-item-has-children .sub-menu {
+    background: #222D32;
+    border: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    overflow-y: hidden;
+    padding: 0 0 0 35px;
+}
+
 
     </style>
-    
-   
 </head>
 
 <body>
@@ -78,23 +131,23 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="index.html"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
+                        <a href="index.php"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
                     </li>
-                    <li class="menu-title">Procesos</li><!-- /.menu-title -->
+                    <li class="menu-title" style="color: #FFFFFF;">Procesos</li><!-- /.menu-title -->
                 
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Forms</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #FFFFFF;"> <i class="menu-icon fa fa-th" style="color: #FFFFFF;"></i>Forms</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="admin.php">Validación de inscripcion</a></li>
-                            <li><i class="menu-icon fa fa-th"></i><a href="crud_usuario.php">Mantenimiento Usuario</a></li>
-                            <li><i class="menu-icon fa fa-th"></i><a href="../estudiante.php">Formulario Estudiantes</a></li>
+                            <li><i class="menu-icon fa fa-th" style="color: #FFFFFF;"></i><a href="admin.php" style="color: #FFFFFF;">Validación de inscripcion</a></li>
+                            <li><i class="menu-icon fa fa-th" style="color: #FFFFFF;"></i><a href="crud_usuario.php" style="color: #FFFFFF;">Mantenimiento Usuario</a></li>
+                            <li><i class="menu-icon fa fa-th" style="color: #FFFFFF;"></i><a href="../estudiante.php" style="color: #FFFFFF;">Formulario Estudiantes</a></li>
                         </ul>
                     </li>
-                    <li class="menu-title">Extras</li><!-- /.menu-title -->
+                    <li class="menu-title" style="color: #FFFFFF;">Extras</li><!-- /.menu-title -->
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-glass"></i>Paginas</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #FFFFFF;"> <i class="menu-icon fa fa-glass" style="color: #FFFFFF;"></i>Paginas</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-sign-in"></i><a href="../Login/login.php">Login</a></li>
+                            <li ><i class="menu-icon fa fa-sign-in" style="color: #FFFFFF;"></i><a href="../Login/login.php" style="color: #FFFFFF;">Login</a></li>
                             
                            
                         </ul>
@@ -213,4 +266,3 @@
                 </div>
             </div>
         </header>
-        <!-- /#header -->
