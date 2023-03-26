@@ -6,17 +6,18 @@
             <div class="animated fadeIn">
                 <!-- Widgets  -->
                 <div class="row">
-                    <div class="col-lg-3 col-md-6">
+
+                <div class="col-lg-3 col-md-6">
                         <div class="card">
                             <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-1">
-                                        <i class="pe-7s-cash"></i>
+                                <div class="stat-widget-four">
+                                    <div class="stat-icon dib">
+                                        <i class="ti-server text-muted"></i>
                                     </div>
                                     <div class="stat-content">
                                         <div class="text-left dib">
-                                            <div class="stat-text">$<span class="count">23569</span></div>
-                                            <div class="stat-heading">Aprobados</div>
+                                            <div class="stat-heading">Pendientes</div>
+                                            <div class="stat-text">Total: 165</div>
                                         </div>
                                     </div>
                                 </div>
@@ -27,20 +28,21 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="card">
                             <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-2">
-                                        <i class="pe-7s-cart"></i>
+                                <div class="stat-widget-four">
+                                    <div class="stat-icon dib">
+                                        <i class="ti-user text-muted"></i>
                                     </div>
                                     <div class="stat-content">
                                         <div class="text-left dib">
-                                            <div class="stat-text"><span class="count">3435</span></div>
-                                            <div class="stat-heading">Pendientes</div>
+                                            <div class="stat-heading">Usuarios</div>
+                                            <div class="stat-text">Total: 2</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
 
                     <div class="col-lg-3 col-md-6">
                         <div class="card">
@@ -96,7 +98,7 @@
                                                 <ul>
                                                     <li>
                                                         <label>
-                                                            <input type="checkbox"><i class="check-box"></i><span>Terminar el login y registro ....</span>
+                                                            <input type="checkbox"><i class="check-box"></i><span>Terminar Funcion Correo Automatico</span>
                                                             <a href='#' class="fa fa-times"></a>
                                                             <a href='#' class="fa fa-pencil"></a>
                                                             <a href='#' class="fa fa-check"></a>
@@ -144,9 +146,23 @@
                         </div><!-- /.card -->
                     </div>
 
-                    
+                      <div class="col-md-12 col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <!-- <h4 class="box-title">Chandler</h4> -->
+                                <div class="calender-cont widget-calender">
+                                    <div id="calendar"></div>
+                                </div>
+                            </div>
+                        </div><!-- /.card -->
+                    </div>
+
                 </div>
+
                 <!-- /To Do and Live Chat -->
+
+
+                
                
             </div>
             <!-- .animated -->

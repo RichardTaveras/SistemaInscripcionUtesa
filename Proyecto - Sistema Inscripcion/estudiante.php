@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="shortcut icon" href="Login/img/Captura.png">
 	<title> FORMULARIO DE INSCRIPCIÓN </title>
 	<style>
 		body {

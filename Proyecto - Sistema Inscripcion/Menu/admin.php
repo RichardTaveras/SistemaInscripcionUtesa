@@ -15,7 +15,7 @@ th, td {
 }
 
 th {
-  background-color: #009933; /* verde */
+  background-color: #009688; /* verde */
   color: #fff; /* blanco */
 }
 
@@ -36,11 +36,11 @@ a:hover {
 .btn-approve {
   display: inline-block;
   padding: 6px 12px;
-  background-color: #28a745; /* verde */
+  background-color: #009688;; /* verde */
   color: #fff;
   font-size: 14px;
   font-weight: bold;
-  border: 2px solid #28a745; /* verde */
+  border: 2px solid #009688; /* verde */
   border-radius: 4px;
   text-decoration: none;
 }
@@ -77,11 +77,11 @@ h1 {
 .tablink {
   display: inline-block;
   padding: 6px 12px;
-  background-color: #009933; /* verde */
+  background-color: #009688; /* verde */
   color: #fff;
   font-size: 14px;
   font-weight: bold;
-  border: 2px solid #009933; /* verde */
+  border: 2px solid #009688; /* verde */
   border-radius: 4px;
   text-decoration: none;
 }

@@ -10,8 +10,8 @@
     <meta name="description" content="Ela Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="apple-touch-icon" href="https://i.imgur.com/QRAUqs9.png">
-    <link rel="shortcut icon" href="https://i.imgur.com/QRAUqs9.png">
+    <link rel="apple-touch-icon" href="../Login/img/Captura.png">
+    <link rel="shortcut icon" href="../Login/img/Captura.png">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
@@ -65,7 +65,7 @@
 
         .right-panel header.header {
     background: #009688;
-    border-bottom: 1px solid #e8e9ed;
+    border-bottom: 1px solid #009688;
     -webkit-box-shadow: none;
     box-shadow: none;
     clear: both;
@@ -119,6 +119,11 @@ aside.left-panel {
     overflow-y: hidden;
     padding: 0 0 0 35px;
 }
+p.jeje {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
 
 
     </style>
@@ -152,8 +157,9 @@ aside.left-panel {
                            
                         </ul>
                     </li>
+            
                     <li class="active">
-                        <a href="../Login/login.php"><i class="menu-icon fa fa-laptop"></i>Salir </a>
+                        <a href="../Login/login.php" style="color: #DC1E24;"><i  class="menu-icon fa fa-sign-in" style="color: #DC1E24;"></i>Cerrar sesión</a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
@@ -166,15 +172,24 @@ aside.left-panel {
         <header id="header" class="header">
             <div class="top-left">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="./"><img src="images/logo.png" alt="Logo"></a>
+                    <a class="navbar-brand" href="./"><img src="images/logoB.png" alt="Logo"></a>
                     <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a>
-                    <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
+                    <a id="menuToggle" class="menutoggle"><i class="fa fa-bars" style="color: #FFFFFF;"></i></a>
                 </div>
+               
             </div>
+           
             <div class="top-right">
                 <div class="header-menu">
+
+                <img src="images/LogoUtesaSC.gif" style="height: 50px; width: 50px; ">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="app-header__recinto" style="padding-right: 500px;">
+                <p class="jeje" style="color: #FFFFFF;"><b>Sistema de Inscripción Automatizado - UTESA</b></p>
+                    </div>
+
                     <div class="header-left">
-                        <button class="search-trigger"><i class="fa fa-search"></i></button>
+                        <button class="search-trigger"><i class="fa fa-search" style="color: #FFFFFF;"></i></button>
                         <div class="form-inline">
                             <form class="search-form">
                                 <input class="form-control mr-sm-2" type="text" placeholder="Search ..." aria-label="Search">
@@ -184,13 +199,13 @@ aside.left-panel {
 
                         <div class="dropdown for-notification">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fa fa-bell"></i>
+                                <i class="fa fa-bell" style="color: #FFFFFF;"></i>
                                 <span class="count bg-danger">3</span>
                             </button>
                             <div class="dropdown-menu" aria-labelledby="notification">
                                 <p class="red">You have 3 Notification</p>
                                 <a class="dropdown-item media" href="#">
-                                    <i class="fa fa-check"></i>
+                                    <i class="fa fa-check" style="color: #FFFFFF;"></i>
                                     <p>Server #1 overloaded.</p>
                                 </a>
                                 <a class="dropdown-item media" href="#">
@@ -206,7 +221,7 @@ aside.left-panel {
 
                         <div class="dropdown for-message">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="message" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fa fa-envelope"></i>
+                                <i class="fa fa-envelope" style="color: #FFFFFF;"></i>
                                 <span class="count bg-primary">4</span>
                             </button>
                             <div class="dropdown-menu" aria-labelledby="message">
@@ -249,7 +264,7 @@ aside.left-panel {
 
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="user-avatar rounded-circle" src="images/admin.jpg" alt="User Avatar">
+                            <img class="user-avatar rounded-circle" src="images/admin2.jpg" alt="User Avatar">
                         </a>
 
                         <div class="user-menu dropdown-menu">
