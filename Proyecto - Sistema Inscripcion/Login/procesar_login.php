@@ -1,5 +1,4 @@
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="codigo.js"></script> 
+
 <?php
 // Conectar a la base de datos de PhpMyAdmin
 $dsn = 'mysql:dbname=inscripcion;host=localhost';
