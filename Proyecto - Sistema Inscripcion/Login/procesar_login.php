@@ -1,3 +1,5 @@
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="codigo.js"></script> 
 <?php
 // Conectar a la base de datos de PhpMyAdmin
 $dsn = 'mysql:dbname=inscripcion;host=localhost';
@@ -36,8 +38,12 @@ if ($resultado) {
         header('Location: login.php');
     }
     exit;
-} else {
+} elseif($usuario == "" || $password == ""){
     // Si el usuario o el password son incorrectos, mostrar un mensaje de error
-    echo "Usuario o contraseña incorrectos";
+    
+    header('Location: login.php?Debe_ingresar_un_usuario_y/o_password');
+}else{
+    
+    header('Location: login.php?Usuario_o_contraseña_incorrectos');
 }
 ?>

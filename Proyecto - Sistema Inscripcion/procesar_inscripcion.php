@@ -46,6 +46,7 @@ VALUES ('$nombre', '$apellido', '$email', '$telefono', '$direccion', '$foto', '$
 
 if ($conn->query($sql) === TRUE) {
     echo "Recibiras una notificacion al e-mail que has proporcionado.";
+   // header('Location: UTESA __ Sistema Corporativo Universidad Tecnológica de Santiago.html?Recibiras una notificacion al e-mail_que_has_proporcionado.');
 } else {
     echo "Error al insertar los datos: " . $conn->error;
 }

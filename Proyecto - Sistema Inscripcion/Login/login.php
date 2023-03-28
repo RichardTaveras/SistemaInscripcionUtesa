@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/estilos.css">
-    
+      
 </head>
 
 <body>
@@ -43,7 +43,7 @@
             </div>
         </form>
     </div>
-
+   
 </body>
 
 </html>
