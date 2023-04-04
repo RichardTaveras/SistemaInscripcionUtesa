@@ -4,13 +4,13 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "inscripcion";
-
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Verificar la conexión a la base de datos
 if ($conn->connect_error) {
     die("Error de conexión a la base de datos: " . $conn->connect_error);
 }
+
 
 // Obtener los datos del formulario
 $nombre = $_POST["nombre"];
@@ -45,8 +45,33 @@ $sql = "INSERT INTO datos_inscripcion (nombre, apellido, email, telefono, direcc
 VALUES ('$nombre', '$apellido', '$email', '$telefono', '$direccion', '$foto', '$acta_nacimiento', '$certificacion_bachiller', '$record_calificaciones', '$certificado_salud', '$cedula_identidad')";
 
 if ($conn->query($sql) === TRUE) {
-    echo "Recibiras una notificacion al e-mail que has proporcionado.";
-   // header('Location: UTESA __ Sistema Corporativo Universidad Tecnológica de Santiago.html?Recibiras una notificacion al e-mail_que_has_proporcionado.');
+    require 'PHPMailer.php';
+    require 'Exception.php';
+    require 'SMTP.php';
+    $mail = new PHPMailer\PHPMailer\PHPMailer();
+$mail->CharSet = 'UTF-8';
+
+$body = $nombre . '  ! Bienvenido a nuestra institucion, el correo que has recibido contiene en link de seguimiento de tu inscripcion, 
+haz click aqui: Seguir mi inscripcion ';
+
+$mail->IsSMTP();
+$mail->Host       = 'smtp.gmail.com';
+$mail->SMTPSecure = 'tls';
+$mail->Port       = 587;
+$mail->SMTPDebug  = 1;
+$mail->SMTPAuth   = true;
+$mail->Username   = 'bmchesstraining@gmail.com';
+$mail->Password   = 'umuodnzohydgrpdz';
+$mail->SetFrom('bmchesstraining@gmail.com', "Bryan");
+$mail->AddReplyTo('no-reply@mycomp.com','no-reply');
+$mail->Subject    = 'Inscripcion de UTESA';
+
+$mail->MsgHTML($body);
+
+$mail->AddAddress($email, $nombre);
+$mail->send();
+header('Location: back.html');
+
 } else {
     echo "Error al insertar los datos: " . $conn->error;
 }
