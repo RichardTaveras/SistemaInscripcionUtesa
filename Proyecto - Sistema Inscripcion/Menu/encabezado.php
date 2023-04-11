@@ -84,7 +84,7 @@
     padding: 0 1.25em 0 0;
 }
 aside.left-panel {
-    background: #0D1214;
+    background: #222D32;
     height: 100vh;
     padding: 0;
     vertical-align: top;
@@ -99,7 +99,7 @@ aside.left-panel {
 }
 
 .navbar {
-    background: #0D1214;
+    background: #222D32;
     border-radius: 0;
     border: none;
     display: inline-block;
@@ -123,7 +123,27 @@ p.jeje {
     margin-top: 10px;
     margin-bottom: 10px;
   }
+  .treeview-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0px 0px 0px 0px;
+  font-size: 1em;
+  color: #fff;
+}
 
+.treeview-item.active, .treeview-item:hover, .treeview-item:focus {
+  background: #0d1214;
+  text-decoration: none;
+  color: #fff;
+}
+
+.treeview-item .icon {
+  margin-right: 5px;
+}
 
 
     </style>
@@ -136,30 +156,30 @@ p.jeje {
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="index.php"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
+                        <a href="index.php" style="color: #FFFFFF;"><i style="color: #FFFFFF;" class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                     </li>
-                    <li class="menu-title" style="color: #FFFFFF;">Procesos</li><!-- /.menu-title -->
+                    <li class="menu-title" style="color: #FFFFFF;">Principal</li><!-- /.menu-title -->
                 
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #FFFFFF;"> <i class="menu-icon fa fa-th" style="color: #FFFFFF;"></i>Forms</a>
+                        <a href="#"  class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #FFFFFF;"> <i class="menu-icon fa fa-cogs" style="color: #FFFFFF;"></i>Procesos</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th" style="color: #FFFFFF;"></i><a href="admin.php" style="color: #FFFFFF;">Validación de inscripcion</a></li>
-                            <li><i class="menu-icon fa fa-th" style="color: #FFFFFF;"></i><a href="crud_usuario.php" style="color: #FFFFFF;">Mantenimiento Usuario</a></li>
-                            <li><i class="menu-icon fa fa-th" style="color: #FFFFFF;"></i><a href="../estudiante.php" style="color: #FFFFFF;">Formulario Estudiantes</a></li>
+                            <li class="treeview-item"><i class="menu-icon ti-check" style="color: #FFFFFF;"></i><a href="admin.php"  style="color: #FFFFFF;">Validar Inscripcion</a></li>
+                            <li class="treeview-item"><i class="menu-icon ti-user" style="color: #FFFFFF;"></i><a href="crud_usuario.php" style="color: #FFFFFF;">Mantenimiento Usuario</a></li>
+                            <li class="treeview-item"><i class="menu-icon fa fa-table" style="color: #FFFFFF;"></i><a href="../estudiante.php" style="color: #FFFFFF;">Formulario Estudiantes</a></li>
                         </ul>
                     </li>
                     <li class="menu-title" style="color: #FFFFFF;">Extras</li><!-- /.menu-title -->
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #FFFFFF;"> <i class="menu-icon fa fa-glass" style="color: #FFFFFF;"></i>Paginas</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li ><i class="menu-icon fa fa-sign-in" style="color: #FFFFFF;"></i><a href="../Login/login.php" style="color: #FFFFFF;">Login</a></li>
+                            <li class="treeview-item"><i class="menu-icon fa fa-sign-in" style="color: #FFFFFF;"></i><a href="../Login/login.php" style="color: #FFFFFF;">Login</a></li>
                             
                            
                         </ul>
                     </li>
             
-                    <li class="active">
-                        <a href="../Login/login.php" style="color: #DC1E24;"><i  class="menu-icon fa fa-sign-in" style="color: #DC1E24;"></i>Cerrar sesión</a>
+                    <li class="treeview-item">
+                        <a href="../Login/login.php"  style="color: #DC1E24;"><i  class="menu-icon fa fa-sign-in" style="color: #DC1E24;"></i>Cerrar sesión</a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
