@@ -173,7 +173,7 @@ p.jeje {
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #FFFFFF;"> <i class="menu-icon fa fa-glass" style="color: #FFFFFF;"></i>Paginas</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li class="treeview-item"><i class="menu-icon fa fa-sign-in" style="color: #FFFFFF;"></i><a href="../Login/login.php" style="color: #FFFFFF;">Login</a></li>
-                            
+                            <li class="treeview-item"><i class="menu-icon ti-home" style="color: #FFFFFF;"></i><a href="../UTESA __ Sistema Corporativo Universidad Tecnológica de Santiago copy.html" style="color: #FFFFFF;">Pag Web Utesa</a></li>
                            
                         </ul>
                     </li>
