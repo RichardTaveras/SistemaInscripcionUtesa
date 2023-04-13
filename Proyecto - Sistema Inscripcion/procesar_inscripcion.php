@@ -11,8 +11,14 @@ if ($conn->connect_error) {
     die("Error de conexión a la base de datos: " . $conn->connect_error);
 }
 
+// Verificar que se han enviado todos los campos del formulario
+if (!isset($_POST["id"], $_POST["nombre"], $_POST["apellido"], $_POST["email"], $_POST["telefono"], $_POST["direccion"], $_FILES["foto"], $_FILES["acta_nacimiento"], $_FILES["certificacion_bachiller"], $_FILES["record_calificaciones"], $_FILES["certificado_salud"], $_FILES["cedula_identidad"])) {
+    die("Error: faltan campos en el formulario.");
+}
+
 
 // Obtener los datos del formulario
+$id = $_POST["id"];
 $nombre = $_POST["nombre"];
 $apellido = $_POST["apellido"];
 $email = $_POST["email"];
@@ -24,6 +30,7 @@ $certificacion_bachiller = $_FILES["certificacion_bachiller"]["name"];
 $record_calificaciones = $_FILES["record_calificaciones"]["name"];
 $certificado_salud = $_FILES["certificado_salud"]["name"];
 $cedula_identidad = $_FILES["cedula_identidad"]["name"];
+
 
 // Mover los archivos subidos a la carpeta deseada
 $foto_destino = "archivos/fotos/" . $foto;
@@ -44,38 +51,9 @@ move_uploaded_file($_FILES["cedula_identidad"]["tmp_name"], $cedula_identidad_de
 $sql = "INSERT INTO datos_inscripcion (nombre, apellido, email, telefono, direccion, foto, acta_nacimiento, certificacion_bachiller, record_calificaciones, certificado_salud, cedula_identidad)
 VALUES ('$nombre', '$apellido', '$email', '$telefono', '$direccion', '$foto', '$acta_nacimiento', '$certificacion_bachiller', '$record_calificaciones', '$certificado_salud', '$cedula_identidad')";
 
-if ($conn->query($sql) === TRUE) {
-    require 'PHPMailer.php';
-    require 'Exception.php';
-    require 'SMTP.php';
-    $mail = new PHPMailer\PHPMailer\PHPMailer();
-$mail->CharSet = 'UTF-8';
+header('Location: estatus.php');
 
-$body = $nombre . '  ! Bienvenido a nuestra institucion, el correo que has recibido contiene en link de seguimiento de tu inscripcion, 
-haz click aqui: Seguir mi inscripcion ';
-
-$mail->IsSMTP();
-$mail->Host       = 'smtp.gmail.com';
-$mail->SMTPSecure = 'tls';
-$mail->Port       = 587;
-$mail->SMTPDebug  = 1;
-$mail->SMTPAuth   = true;
-$mail->Username   = 'bmchesstraining@gmail.com';
-$mail->Password   = 'umuodnzohydgrpdz';
-$mail->SetFrom('bmchesstraining@gmail.com', "Bryan");
-$mail->AddReplyTo('no-reply@mycomp.com','no-reply');
-$mail->Subject    = 'Inscripcion de UTESA';
-
-$mail->MsgHTML($body);
-
-$mail->AddAddress($email, $nombre);
-$mail->send();
-header('Location: back.html');
-
-} else {
-    echo "Error al insertar los datos: " . $conn->error;
-}
-
-// Cerrar la conexión a la base de datos
+ 
 $conn->close();
+
 ?>

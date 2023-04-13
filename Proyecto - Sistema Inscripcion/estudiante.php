@@ -115,8 +115,11 @@ input[type=file] {
 </head>
 <body>
 	
+
+
+
 	<form action="procesar_inscripcion.php" method="POST" enctype="multipart/form-data">
-	
+
 	<h1>FORMULARIO DE INSCRIPCIÓN</h1>
 	<hr>
 	<hr>
@@ -127,7 +130,7 @@ input[type=file] {
 <br>
 
 
-
+              <input type="hidden" name="id" placeholder="id" id="id" value="">
 			<input type="text" name="nombre" placeholder="Nombre" id="nombre" required><br><br>
 
 			
@@ -167,7 +170,7 @@ input[type=file] {
 			<input type="file" name="cedula_identidad" id="cedula_identidad" required>
 
 		</fieldset>
-
+		
 		<input type="submit" name="submit" value="Enviar">
 
 	</form>
