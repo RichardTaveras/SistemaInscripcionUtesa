@@ -52,13 +52,14 @@ while ($row = $result->fetch_assoc()) {
     try {
         $mail->send();
         
-    header('Location: back.html');
+   
         echo "Correo enviado exitosamente a " . $email . "<br>";
     } catch (Exception $e) {
         echo "Error al enviar el correo electrónico: " . $mail->ErrorInfo;
     }
 }
-
+header('Location: back.html');
 // Cierre de la conexión a la base de datos
 $conn->close();
+
 ?>

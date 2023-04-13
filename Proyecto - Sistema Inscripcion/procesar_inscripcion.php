@@ -51,9 +51,13 @@ move_uploaded_file($_FILES["cedula_identidad"]["tmp_name"], $cedula_identidad_de
 $sql = "INSERT INTO datos_inscripcion (nombre, apellido, email, telefono, direccion, foto, acta_nacimiento, certificacion_bachiller, record_calificaciones, certificado_salud, cedula_identidad)
 VALUES ('$nombre', '$apellido', '$email', '$telefono', '$direccion', '$foto', '$acta_nacimiento', '$certificacion_bachiller', '$record_calificaciones', '$certificado_salud', '$cedula_identidad')";
 
-header('Location: estatus.php');
+if ($conn->query($sql) === TRUE) {
+    echo "Los datos se han insertado correctamente.";
+} else {
+    echo "Error al insertar los datos: " . $conn->error;
+}
 
- 
+
 $conn->close();
-
+header('Location: estatus.php');
 ?>
