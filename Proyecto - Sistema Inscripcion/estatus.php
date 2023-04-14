@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 
 
 // Consulta de estudiantes
-$id_estudiante = $_POST["id_estudiante"];
+
 $sql = "SELECT id, nombre, email, estado FROM datos_inscripcion";
 $result = $conn->query($sql);
 
@@ -43,21 +43,23 @@ while ($row = $result->fetch_assoc()) {
     $nombre = $row["nombre"];
     $email = $row["email"];
     $estado = $row["estado"];
-    $enlace = "http://localhost/proyecto/estatus_estudiante.php?id=" . $id;
+    $enlace = "http://localhost/proyecto/Servicios _Santiago.php?id=" . $id;
     
     $subject = "Estatus de tu progreso académico";
-    $message = "Hola " . $nombre . ", tu estatus actual es: " . $estado . ". Para ver detalles, haz clic en el siguiente enlace: " . $enlace;
+    $message = "Hola " . $nombre . ", tu estatus actual es: " . $estado . ". Para ver detalles, haz clic en el siguiente enlace:<br> " . $enlace;
     
     $mail->Subject = $subject;
     $mail->MsgHTML($message);
     // Envío del correo electrónico
-    $mail->AddAddress($email, $nombre);
     
+    $mail->AddAddress($email, $nombre);
+ 
     try {
         $mail->send();
         
    
         echo "Correo enviado exitosamente a " . $email . "<br>";
+        header('Location: back.html');
     } catch (Exception $e) {
         echo "Error al enviar el correo electrónico: " . $mail->ErrorInfo;
     }
