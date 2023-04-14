@@ -12,9 +12,12 @@ if ($conn->connect_error) {
     die("Error de conexión a la base de datos: " . $conn->connect_error);
 }
 
+
 // Consulta de estudiantes
+$id_estudiante = $_POST["id_estudiante"];
 $sql = "SELECT id, nombre, email, estado FROM datos_inscripcion";
 $result = $conn->query($sql);
+
 
 // Generación del correo electrónico para cada estudiante
 require 'PHPMailer.php';
@@ -35,6 +38,7 @@ $mail->SetFrom('bm7068959@gmail.com', "Sistema Corporativo - UTESA ");
 $mail->AddReplyTo('no-reply@mycomp.com','no-reply');
 
 while ($row = $result->fetch_assoc()) {
+    
     $id = $row["id"];
     $nombre = $row["nombre"];
     $email = $row["email"];
@@ -58,7 +62,7 @@ while ($row = $result->fetch_assoc()) {
         echo "Error al enviar el correo electrónico: " . $mail->ErrorInfo;
     }
 }
-header('Location: back.html');
+
 // Cierre de la conexión a la base de datos
 $conn->close();
 

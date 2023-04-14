@@ -16,6 +16,21 @@ if (!isset($_POST["id"], $_POST["nombre"], $_POST["apellido"], $_POST["email"], 
     die("Error: faltan campos en el formulario.");
 }
 
+function validarCampos($id, $nombre, $apellido, $email, $conn) {
+    $sql = "SELECT * FROM datos_inscripcion WHERE id='$id' OR email='$email'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            if ($row["id"] == $id) {
+                die("Error: el ID ya existe en la base de datos.");
+            }
+            if ($row["email"] == $email) {
+                die("Error: el correo electrónico ya existe en la base de datos.");
+            }
+        }
+    }
+}
 
 // Obtener los datos del formulario
 $id = $_POST["id"];
@@ -32,6 +47,8 @@ $certificado_salud = $_FILES["certificado_salud"]["name"];
 $cedula_identidad = $_FILES["cedula_identidad"]["name"];
 
 
+
+validarCampos($id, $nombre, $apellido, $email, $conn);
 // Mover los archivos subidos a la carpeta deseada
 $foto_destino = "archivos/fotos/" . $foto;
 $acta_nacimiento_destino = "archivos/actas_nacimiento/" . $acta_nacimiento;
@@ -48,6 +65,7 @@ move_uploaded_file($_FILES["certificado_salud"]["tmp_name"], $certificado_salud_
 move_uploaded_file($_FILES["cedula_identidad"]["tmp_name"], $cedula_identidad_destino);
 
 // Insertar los datos en la base de datos
+
 $sql = "INSERT INTO datos_inscripcion (nombre, apellido, email, telefono, direccion, foto, acta_nacimiento, certificacion_bachiller, record_calificaciones, certificado_salud, cedula_identidad)
 VALUES ('$nombre', '$apellido', '$email', '$telefono', '$direccion', '$foto', '$acta_nacimiento', '$certificacion_bachiller', '$record_calificaciones', '$certificado_salud', '$cedula_identidad')";
 
