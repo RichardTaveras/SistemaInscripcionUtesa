@@ -196,8 +196,8 @@ function rechazarInscripcion(id) {
         xhttp.send("id=" + id);
       }
     }
-
-
+   
+   
 	</script>
 
 
@@ -209,6 +209,8 @@ function rechazarInscripcion(id) {
             <!-- Animated -->
             <div class="animated fadeIn">
 <div class="container">
+
+
 <?php
 
 // Conectarse a la base de datos
@@ -220,8 +222,6 @@ if ($mysqli->connect_error) {
         . $mysqli->connect_error);
 }
 
-
-
 // Si el administrador ha aprobado o rechazado una inscripción, actualiza la base de datos
 if (isset($_POST['id']) && isset($_POST['estado'])) {
   $id = $_POST['id'];
@@ -231,9 +231,21 @@ if (isset($_POST['id']) && isset($_POST['estado'])) {
   $mysqli->query($query);
 }
 
+if (isset($_POST['notas']) && isset($_POST['id'])) {
+  // Obtener los valores del formulario
+  $notas = $_POST['notas'];
+  $id = $_POST['id'];
+
+  // Actualizar la base de datos con las nuevas notas
+  $que= "UPDATE datos_inscripcion SET notas = '$notas' WHERE id = '$id'";
+  $mysqli->query($que);
+}
+
+
 // Consultar las inscripciones y sus archivos adjuntos
-$query = "SELECT * FROM datos_inscripcion";
+$query = "SELECT * FROM datos_inscripcion" ;
 $result = $mysqli->query($query);
+
 
 // Mostrar las inscripciones y sus archivos adjuntos en una tabla
 echo '<table>';
@@ -246,13 +258,22 @@ while ($row = $result->fetch_assoc()) {
     echo '<td>' . $row['nombre'] . '</td>';
     echo '<td>' . $row['email'] . '</td>';
     echo '<td>' . $row['estado'] . '</td>';
-    
-    echo '<td>'  . $row['notas'] . '<textarea  id="notas" name="notas" placeholder="Ingrese notas..."></textarea>'; '</td>';
+    echo '<td>' . $row['notas'] . '</td>';
+echo '<form method="POST">';
+echo '<input type="text" name="notas" id="notas">';
+echo '<input type="hidden" name="id" value="' . $row['id'] . '">';
+echo '<button type="submit">Guardar nota</button>';
+echo '</form>';
    
-    echo '<td>' .$row['notas'] . '<a type="submit" class="btn btn-primary" href="guardar_notas.php?=. name="guardar-notas">Guardar</button>';'</td>';
+
+      
+        
     echo '</tr>';
 
 
+         
+    
+   
     
          // Mostrar el botón de aprobación si la inscripción no ha sido aprobada
          if ($row['estado'] == 'pendiente') {
