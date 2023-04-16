@@ -56,6 +56,7 @@ a:hover {
   margin-left: 8px;
 }
 
+
 /* Estilos CSS para el encabezado */
 h1 {
   font-size: 28px;
@@ -155,6 +156,9 @@ h1 {
     font-size: 12px;
     margin-left: 8px;
   }
+
+
+
 
 	</style>
 
@@ -258,12 +262,9 @@ while ($row = $result->fetch_assoc()) {
     echo '<td>' . $row['nombre'] . '</td>';
     echo '<td>' . $row['email'] . '</td>';
     echo '<td>' . $row['estado'] . '</td>';
+    
     echo '<td>' . $row['notas'] . '</td>';
-echo '<form method="POST">';
-echo '<input type="text" name="notas" id="notas">';
-echo '<input type="hidden" name="id" value="' . $row['id'] . '">';
-echo '<button type="submit">Guardar nota</button>';
-echo '</form>';
+    echo '<form method="POST"><input type="text" name="notas" id="notas"><input type="hidden" name="id" value="' . $row['id'] . '"><button type="submit">Guardar nota</button></form>';
    
 
       
