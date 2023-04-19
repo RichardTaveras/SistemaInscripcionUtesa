@@ -76,7 +76,7 @@ else {
                 <option value="usuario" <?php if($fila['rol'] == 'usuario') { echo 'selected'; } ?>>Usuario</option>
             </select>
 </div>
-<button type="submit" class="btn btn-primary" name="editar_usuario">Actualizar</button>
+<button type="submit" class="btn btn-info" name="editar_usuario">Actualizar</button>
 </form>
 <br>
 </div>
