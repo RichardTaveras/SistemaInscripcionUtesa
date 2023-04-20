@@ -151,6 +151,11 @@ input[type=file] {
 			<legend>:::: Documentos para enviar ::::</legend>
 			<hr>
 			<br>
+
+			
+			<label for="formulario">Formulario de inscripcion":</label>
+			<input type="file" name="formulario" id="formulario" required>
+			
 			<label for="foto">Foto tamaño 2" x 2":</label>
 			<input type="file" name="foto" id="foto" required>
 

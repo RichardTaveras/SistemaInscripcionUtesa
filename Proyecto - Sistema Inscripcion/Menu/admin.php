@@ -211,24 +211,7 @@ function rechazarInscripcion(id) {
       }
     }
    
-    function guardarNota(event) {
-    event.preventDefault(); // detiene el envío del formulario
-    var formulario = event.target.closest('form'); // obtiene el formulario actual
-    var formData = new FormData(formulario); // crea un objeto FormData con los datos del formulario
     
-    // realiza la petición AJAX para guardar la nota
-    var request = new XMLHttpRequest();
-    request.onreadystatechange = function() {
-        if (request.readyState == 4 && request.status == 200) {
-            document.getElementById('mensaje').style.display = 'block'; // muestra el mensaje de bloqueo
-            setTimeout(function() {
-                document.getElementById('mensaje').style.display = 'none'; // oculta el mensaje después de 3 segundos
-            }, 3000);
-        }
-    };
-    request.open('POST', 'guardar_nota.php');
-    request.send(formData);
-}
 
 	</script>
 
@@ -304,7 +287,7 @@ while ($row = $result->fetch_assoc()) {
     echo '<td>' . $row['email'] . '</td>';
     echo '<td>' . $row['estado'] . '</td>';
     
-    echo '<td>' . $row['notas'] .'<form method="POST"><input type="text" name="notas" id="notas"><input type="hidden" name="id" value="' . $row['id'] . '"><button class="btn-approve" type="submit" onclick="guardarNota(event)">Guardar nota</button></form>'; '</td>'; 
+    echo '<td>' . $row['notas'] .'<form method="POST"><input type="text" name="notas" id="notas"><input type="hidden" name="id" value="' . $row['id'] . '"><button class="btn-approve" type="submit">Guardar nota</button></form>'; '</td>'; 
     
    
 
@@ -349,7 +332,7 @@ echo '<li><a href="../archivos/certificaciones_bachiller/' . $row['certificacion
 echo '<li><a href="../archivos/records_calificaciones/' . $row['record_calificaciones'] . '">Records de calificaciones</a></li>';
 echo '<li><a href="../archivos/certificados_salud/' . $row['certificado_salud'] . '">Certificado de salud</a></li>';
 echo '<li><a href="../archivos/cedulas_identidad/' . $row['cedula_identidad'] . '">Cédula de identidad</a></li>';
-
+echo '<li><a href="../archivos/formulario/' . $row['formulario'] . '">Formulario</a></li>';
 echo '</ul>';
 echo '</div>';
 echo '</div>';
@@ -363,6 +346,7 @@ echo '</tr>';
 
 }
 
+
 // Cerrar la conexión
 $mysqli->close();
 ?>
@@ -370,4 +354,5 @@ $mysqli->close();
             <!-- .animated -->
         </div>
         <!-- /.content -->
+       
         <?php include('pie.php');?>

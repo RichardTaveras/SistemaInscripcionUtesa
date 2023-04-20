@@ -1,10 +1,42 @@
-<?php include('encabezado.php');?>
+<?php 
+// Conexión a la base de datos
+$db_host = 'localhost';
+$db_name = 'inscripcion';
+$db_user = 'root';
+$db_pass = '';
+$db = new PDO("mysql:host=$db_host;dbname=$db_name", $db_user, $db_pass);
+
+// Ejecución de la consulta SQL
+$sql = "SELECT COUNT(*) FROM datos_inscripcion WHERE estado = 'pendiente'";
+$stmt = $db->prepare($sql);
+$stmt->execute();
+$count = $stmt->fetchColumn();
+
+
+$sql = "SELECT COUNT(*) FROM datos_inscripcion WHERE estado = 'aprobado'";
+$stmt = $db->prepare($sql);
+$stmt->execute();
+$count2 = $stmt->fetchColumn();
+
+$sql = "SELECT COUNT(*) FROM datos_inscripcion";
+$stmt = $db->prepare($sql);
+$stmt->execute();
+$count3 = $stmt->fetchColumn();
+
+$sql = "SELECT COUNT(*) FROM usuarios";
+$stmt = $db->prepare($sql);
+$stmt->execute();
+$count4 = $stmt->fetchColumn();
+
+include('encabezado.php');?>
         <!-- /#header -->
         <!-- Content -->
         <div class="content">
             <!-- Animated -->
             <div class="animated fadeIn">
                 <!-- Widgets  -->
+
+                
                 <div class="row">
 
                 <div class="col-lg-3 col-md-6">
@@ -17,7 +49,7 @@
                                     <div class="stat-content">
                                         <div class="text-left dib">
                                             <div class="stat-heading">Pendientes</div>
-                                            <div class="stat-text">Total: 165</div>
+                                            <div class="stat-text">Total: <?php echo $count ?></div>
                                         </div>
                                     </div>
                                 </div>
@@ -35,7 +67,7 @@
                                     <div class="stat-content">
                                         <div class="text-left dib">
                                             <div class="stat-heading">Usuarios</div>
-                                            <div class="stat-text">Total: 2</div>
+                                            <div class="stat-text">Total: <?php echo $count4 ?></div>
                                         </div>
                                     </div>
                                 </div>
@@ -53,8 +85,8 @@
                                     </div>
                                     <div class="stat-content">
                                         <div class="text-left dib">
-                                            <div class="stat-text"><span class="count">149</span></div>
-                                            <div class="stat-heading">Formularios</div>
+                                            <div class="stat-text"><span class="count"><?php echo $count2 ?></span></div>
+                                            <div class="stat-heading">Aprobados</div>
                                         </div>
                                     </div>
                                 </div>
@@ -71,8 +103,8 @@
                                     </div>
                                     <div class="stat-content">
                                         <div class="text-left dib">
-                                            <div class="stat-text"><span class="count">2986</span></div>
-                                            <div class="stat-heading">Estudiantes</div>
+                                            <div class="stat-text"><span class="count"><?php echo $count3 ?></span></div>
+                                            <div class="stat-heading">Solicitudes</div>
                                         </div>
                                     </div>
                                 </div>

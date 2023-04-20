@@ -12,7 +12,7 @@ if ($conn->connect_error) {
 }
 
 // Verificar que se han enviado todos los campos del formulario
-if (!isset($_POST["id"], $_POST["nombre"], $_POST["apellido"], $_POST["email"], $_POST["telefono"], $_POST["direccion"], $_FILES["foto"], $_FILES["acta_nacimiento"], $_FILES["certificacion_bachiller"], $_FILES["record_calificaciones"], $_FILES["certificado_salud"], $_FILES["cedula_identidad"])) {
+if (!isset($_POST["id"], $_POST["nombre"], $_POST["apellido"], $_POST["email"], $_POST["telefono"], $_POST["direccion"], $_FILES["foto"], $_FILES["acta_nacimiento"], $_FILES["certificacion_bachiller"], $_FILES["record_calificaciones"], $_FILES["certificado_salud"], $_FILES["cedula_identidad"],  $_FILES["formulario"])) {
     die("Error: faltan campos en el formulario.");
 }
 
@@ -45,7 +45,7 @@ $certificacion_bachiller = $_FILES["certificacion_bachiller"]["name"];
 $record_calificaciones = $_FILES["record_calificaciones"]["name"];
 $certificado_salud = $_FILES["certificado_salud"]["name"];
 $cedula_identidad = $_FILES["cedula_identidad"]["name"];
-
+$formulario = $_FILES["formulario"]["name"];
 
 
 validarCampos($id, $nombre, $apellido, $email, $conn);
@@ -56,6 +56,7 @@ $certificacion_bachiller_destino = "archivos/certificaciones_bachiller/" . $cert
 $record_calificaciones_destino = "archivos/records_calificaciones/" . $record_calificaciones;
 $certificado_salud_destino = "archivos/certificados_salud/" . $certificado_salud;
 $cedula_identidad_destino = "archivos/cedulas_identidad/" . $cedula_identidad;
+$formulario_destino = "archivos/formulario/" . $formulario;
 
 move_uploaded_file($_FILES["foto"]["tmp_name"], $foto_destino);
 move_uploaded_file($_FILES["acta_nacimiento"]["tmp_name"], $acta_nacimiento_destino);
@@ -63,11 +64,11 @@ move_uploaded_file($_FILES["certificacion_bachiller"]["tmp_name"], $certificacio
 move_uploaded_file($_FILES["record_calificaciones"]["tmp_name"], $record_calificaciones_destino);
 move_uploaded_file($_FILES["certificado_salud"]["tmp_name"], $certificado_salud_destino);
 move_uploaded_file($_FILES["cedula_identidad"]["tmp_name"], $cedula_identidad_destino);
-
+move_uploaded_file($_FILES["formulario"]["tmp_name"], $formulario);
 // Insertar los datos en la base de datos
 
-$sql = "INSERT INTO datos_inscripcion (nombre, apellido, email, telefono, direccion, foto, acta_nacimiento, certificacion_bachiller, record_calificaciones, certificado_salud, cedula_identidad)
-VALUES ('$nombre', '$apellido', '$email', '$telefono', '$direccion', '$foto', '$acta_nacimiento', '$certificacion_bachiller', '$record_calificaciones', '$certificado_salud', '$cedula_identidad')";
+$sql = "INSERT INTO datos_inscripcion (nombre, apellido, email, telefono, direccion, foto, acta_nacimiento, certificacion_bachiller, record_calificaciones, certificado_salud, cedula_identidad,formulario)
+VALUES ('$nombre', '$apellido', '$email', '$telefono', '$direccion', '$foto', '$acta_nacimiento', '$certificacion_bachiller', '$record_calificaciones', '$certificado_salud', '$cedula_identidad', '$formulario')";
 
 if ($conn->query($sql) === TRUE) {
     echo "Los datos se han insertado correctamente.";
