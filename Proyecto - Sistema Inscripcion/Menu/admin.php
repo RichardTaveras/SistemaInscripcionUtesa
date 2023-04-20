@@ -156,7 +156,17 @@ h1 {
     font-size: 12px;
     margin-left: 8px;
   }
-
+  h2 {
+      font-size: 28px;
+  font-weight: bold;
+  color: #333333;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  text-shadow: 2px 2px #e6e6e6;
+  }
 
 
 
@@ -231,7 +241,16 @@ function rechazarInscripcion(id) {
             <!-- Animated -->
             <div class="animated fadeIn">
 <div class="container">
-
+<br>
+  <a href="admin.php" onclick="location.reload()"><h2 >Validacion de Inscripcion</h2></a>
+ 
+    <br>
+<form method="GET" action="" class="input-group">
+    <input type="text" class="form-control" id="buscar" name="buscar" placeholder="Buscar">
+    <div class="input-group-append">
+        <button type="submit" class="btn btn-info">Buscar</button>
+    </div>
+</form>
 
 <?php
 
@@ -263,9 +282,13 @@ if (isset($_POST['notas']) && isset($_POST['id'])) {
   $mysqli->query($que);
 }
 
-
+if(isset($_GET['buscar'])){
+  $query = "SELECT * FROM datos_inscripcion WHERE nombre LIKE '%" . $_GET['buscar'] . "%'";
+} else {
+  $query = "SELECT * FROM datos_inscripcion" ;;
+}
 // Consultar las inscripciones y sus archivos adjuntos
-$query = "SELECT * FROM datos_inscripcion" ;
+//$query = "SELECT * FROM datos_inscripcion" ;
 $result = $mysqli->query($query);
 
 
@@ -281,7 +304,7 @@ while ($row = $result->fetch_assoc()) {
     echo '<td>' . $row['email'] . '</td>';
     echo '<td>' . $row['estado'] . '</td>';
     
-    echo '<td>' . $row['notas'] .'<form method="POST"><input type="text" name="notas" id="notas"><input type="hidden" name="id" value="' . $row['id'] . '"><button type="submit" onclick="guardarNota(event)">Guardar nota</button></form>'; '</td>'; 
+    echo '<td>' . $row['notas'] .'<form method="POST"><input type="text" name="notas" id="notas"><input type="hidden" name="id" value="' . $row['id'] . '"><button class="btn-approve" type="submit" onclick="guardarNota(event)">Guardar nota</button></form>'; '</td>'; 
     
    
 
