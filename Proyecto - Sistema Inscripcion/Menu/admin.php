@@ -168,7 +168,17 @@ h1 {
   text-shadow: 2px 2px #e6e6e6;
   }
 
-
+  #print-btn {
+  position: fixed;
+  bottom: 15px;
+  right: 150px;
+  margin: 0 auto;
+  background-color: #009688;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+}
 
 	</style>
 
@@ -354,5 +364,5 @@ $mysqli->close();
             <!-- .animated -->
         </div>
         <!-- /.content -->
-       
+        <button id="print-btn" onclick="window.print()" >Imprimir</button>
         <?php include('pie.php');?>

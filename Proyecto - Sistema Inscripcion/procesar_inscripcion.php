@@ -55,8 +55,9 @@ $acta_nacimiento_destino = "archivos/actas_nacimiento/" . $acta_nacimiento;
 $certificacion_bachiller_destino = "archivos/certificaciones_bachiller/" . $certificacion_bachiller;
 $record_calificaciones_destino = "archivos/records_calificaciones/" . $record_calificaciones;
 $certificado_salud_destino = "archivos/certificados_salud/" . $certificado_salud;
-$cedula_identidad_destino = "archivos/cedulas_identidad/" . $cedula_identidad;
 $formulario_destino = "archivos/formulario/" . $formulario;
+$cedula_identidad_destino = "archivos/cedulas_identidad/" . $cedula_identidad;
+
 
 move_uploaded_file($_FILES["foto"]["tmp_name"], $foto_destino);
 move_uploaded_file($_FILES["acta_nacimiento"]["tmp_name"], $acta_nacimiento_destino);
@@ -64,7 +65,7 @@ move_uploaded_file($_FILES["certificacion_bachiller"]["tmp_name"], $certificacio
 move_uploaded_file($_FILES["record_calificaciones"]["tmp_name"], $record_calificaciones_destino);
 move_uploaded_file($_FILES["certificado_salud"]["tmp_name"], $certificado_salud_destino);
 move_uploaded_file($_FILES["cedula_identidad"]["tmp_name"], $cedula_identidad_destino);
-move_uploaded_file($_FILES["formulario"]["tmp_name"], $formulario);
+move_uploaded_file($_FILES["formulario"]["tmp_name"], $formulario_destino);
 // Insertar los datos en la base de datos
 
 $sql = "INSERT INTO datos_inscripcion (nombre, apellido, email, telefono, direccion, foto, acta_nacimiento, certificacion_bachiller, record_calificaciones, certificado_salud, cedula_identidad,formulario)
