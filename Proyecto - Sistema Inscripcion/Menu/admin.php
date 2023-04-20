@@ -201,7 +201,25 @@ function rechazarInscripcion(id) {
       }
     }
    
-   
+    function guardarNota(event) {
+    event.preventDefault(); // detiene el envío del formulario
+    var formulario = event.target.closest('form'); // obtiene el formulario actual
+    var formData = new FormData(formulario); // crea un objeto FormData con los datos del formulario
+    
+    // realiza la petición AJAX para guardar la nota
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function() {
+        if (request.readyState == 4 && request.status == 200) {
+            document.getElementById('mensaje').style.display = 'block'; // muestra el mensaje de bloqueo
+            setTimeout(function() {
+                document.getElementById('mensaje').style.display = 'none'; // oculta el mensaje después de 3 segundos
+            }, 3000);
+        }
+    };
+    request.open('POST', 'guardar_nota.php');
+    request.send(formData);
+}
+
 	</script>
 
 
@@ -263,8 +281,8 @@ while ($row = $result->fetch_assoc()) {
     echo '<td>' . $row['email'] . '</td>';
     echo '<td>' . $row['estado'] . '</td>';
     
-    echo '<td>' . $row['notas'] . '</td>';
-    echo '<form method="POST"><input type="text" name="notas" id="notas"><input type="hidden" name="id" value="' . $row['id'] . '"><button type="submit">Guardar nota</button></form>';
+    echo '<td>' . $row['notas'] .'<form method="POST"><input type="text" name="notas" id="notas"><input type="hidden" name="id" value="' . $row['id'] . '"><button type="submit" onclick="guardarNota(event)">Guardar nota</button></form>'; '</td>'; 
+    
    
 
       
