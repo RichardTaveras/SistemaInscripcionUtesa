@@ -169,6 +169,19 @@ p.jeje {
                             <li class="treeview-item"><i class="menu-icon fa fa-table" style="color: #FFFFFF;"></i><a href="../estudiante.php" style="color: #FFFFFF;">Formulario Estudiantes</a></li>
                         </ul>
                     </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#"  class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #FFFFFF;"> <i class="menu-icon ti-agenda" style="color: #FFFFFF;"></i>Reportes</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li class="treeview-item"><i class="menu-icon ti-clipboard" style="color: #FFFFFF;"></i><a href="reporteinscripcion.php"  style="color: #FFFFFF;">Reportes Inscripcion</a></li>
+                            <li class="treeview-item"><i class="menu-icon ti-clipboard" style="color: #FFFFFF;"></i><a href="reporteusuario.php" style="color: #FFFFFF;">Reportes Usuario</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="treeview-item">
+                        <a href="graficos.php"   style="color: #FFFFFF;"> <i class="menu-icon fa fa-bar-chart" style="color: #FFFFFF;"></i>Graficos</a>
+                        
+                    </li>
+                    
                     <li class="menu-title" style="color: #FFFFFF;">Extras</li><!-- /.menu-title -->
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #FFFFFF;"> <i class="menu-icon fa fa-glass" style="color: #FFFFFF;"></i>Paginas</a>

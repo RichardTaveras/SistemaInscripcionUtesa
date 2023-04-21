@@ -41,9 +41,9 @@ $mail->SMTPSecure = 'tls';
 $mail->Port       = 587;
 $mail->SMTPDebug  = 1;
 $mail->SMTPAuth   = true;
-$mail->Username   = 'sistemainscripcionutesa@gmail.com';
-$mail->Password   = 'eyfgmrwaoevrtvbn';
-$mail->SetFrom('sistemainscripcionutesa@gmail.com', "Sistema Corporativo - UTESA ");
+$mail->Username   = 'utesasistema@gmail.com';
+$mail->Password   = 'gneauxevvntwmdfv';
+$mail->SetFrom('utesasistema@gmail.com', "Sistema Corporativo - UTESA ");
 $mail->AddReplyTo('no-reply@mycomp.com','no-reply');
 
 
